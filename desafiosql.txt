@@ -1,0 +1,54 @@
+Ejercicio 1
+#1
+CREATE DATABASE movies;
+#2
+\c movies
+#3
+CREATE TABLE movie (id SERIAL, name varchar(45));
+#4
+INSERT INTO movie (name) VALUES ('El Rey Leon');
+#5
+INSERT INTO movie (name) VALUES ('Terminator II');
+#6
+ALTER TABLE movie ADD COLUMN year varchar(7);
+#7
+ALTER TABLE movie ADD COLUMN genero varchar(15);
+#8
+UPDATE TABLE movie SET year='1984';
+#9
+UPDATE TABLE movie SET genero='Drama';
+#10
+DELETE FROM movie WHERE name='Terminator II';
+
+Ejercicio 2
+
+#1
+INSERT INTO movie (name, year, genero) VALUES ('El Padrino', '1983', 'Triller'),
+('Forest Gump', 1993, 'Comedia'),
+('Mad Max', 2016, 'Accion'),
+('El Silencio de los inocentes', 1987, 'Triller'),
+('ET', 1982, 'Ciencia ficcion');
+
+#2
+SELECT * FROM movie ORDER BY name ASC LIMIT 3;
+
+#3
+SELECT * FROM movie ORDER BY name ASC LIMIT 3;
+
+#4
+SELECT COUNT(*) FROM movie;
+
+#5
+SELECT age, count(age) FROM movie GROUP BY year;
+
+#6
+ALTER TABLE movie ADD COLUMN categoria varchar(30);
+
+#7
+UPDATE movie SET Categoría= 'Adulto' WHERE name ='Crimen Perfecto' or name='El Padrino' or name='El Silencio de los inocentes';
+UPDATE movie SET Categoría= 'Familiar' WHERE name ='Forest Gump' or name='ET' or name='Mad Max';
+UPDATE movie SET Categoría= 'Infantil' WHERE name ='El Rey León';
+
+#8
+
+SELECT DISTINCT(Categoría) FROM movie;
